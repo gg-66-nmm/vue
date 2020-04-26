@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        {{message}}
+        <input type="button" value="更新" onclick="btn1()">
+        <input type="button" value="破坏" onclick="btn2()">
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#box',
+            data: {
+                message: '电脑就能看到',
+            },
+            beforeCreate() {
+                alert("创建前")
+            },
+            created() {
+                alert("创建完成")
+            },
+            beforeMount() {
+                alert("挂载前")
+            },
+            mounted() {
+                alert("挂载完成")
+            },
+            beforeUperdate() {
+                alert("更新前")
+            },
+            uperdate() {
+                alert("更新完成")
+            },
+            beforeDestroy() {
+                alert("销毁前")
+            },
+            uperdate() {
+                alert("销毁完成")
+            },
+
+        })
+
+        function btn1() {
+            vm.message = "手机也能看";
+        }
+
+        function btn2() {
+            vm.$destroy();
+        }
+    </script>
+</body>
+
+</html>

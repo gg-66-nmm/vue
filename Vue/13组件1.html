@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <hello-world></hello-world>
+    </div>
+    <template id=hezi>
+        <div>
+            <h1><font color="green">{{name}}</font></h1>
+            <ul v-for="(item,index) in prom" :key='index'>
+                <li>{{item}}</li>
+            </ul>
+        </div>
+    </template>
+    <script>
+        let box = new Vue({
+            el: '#box',
+            data: {
+                message: '不可分割三变科技搜到',
+            },
+            components: {
+                "HelloWorld": {
+                    template: '#hezi',
+                    data() {
+                        return {
+                            name: '春晓',
+                            prom: [
+                                '春眠不觉晓，',
+                                '处处闻啼鸟。',
+                                '夜来风雨声，',
+                                '花落知多少。'
+                            ]
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

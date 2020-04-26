@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <!--组件-->
+        <hello>
+            <div slot="content1">你发的几十块功能</div>
+            <div slot="content2">开发过几个购买发动机盖</div>
+            <div slot="content3">和你们口径</div>
+        </hello>
+    </div>
+    <script>
+        //模板
+        Vue.component('hello', {
+            template: `
+            <div>
+                <span>组件模板</span>   
+               
+                <slot name="content1"><h3>免费的抗衰老个进入破</h3></slot>
+                 <slot name="content2"><h3>开了房搞定没hi看</h3></slot> 
+                <slot name="content3"><h3>农民工说能接受</h3></slot>
+            </div>
+            `
+        })
+        let box = new Vue({
+            el: "#box",
+        })
+    </script>
+</body>
+
+</html>

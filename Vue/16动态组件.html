@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="button" value="组件1" @click="name='first'">
+        <input type="button" value="组件2" @click="name='second'">
+        <keep-alive>
+            <component :is="name">
+
+            </component>
+        </keep-alive>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data: {
+                name: 'first',
+            },
+            components: {
+                'first': {
+                    template: `<h1>I am first</h1>`
+                },
+                'second': {
+                    template: `<h1>I am second</h1>`
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

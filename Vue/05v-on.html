@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <button v-on:click="btn">点击</button>
+        <button @click="change">点击</button>
+        <button @click="say('say hello')">点击</button>
+        <button @click.stop="doT">点击</button>
+        <button @keyup.enter="onenter">点击</button>
+        <input type="button" value="按下抬起" v-on="{ mousedown: doThisdown, mouseup: doThat }" />
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data: {
+
+            },
+            methods: {
+                btn() {
+                    alert(123);
+                },
+                change() {
+                    alert('say hello');
+                },
+                say(aa) {
+                    alert(aa);
+                },
+                doT() {
+                    alert('阻止冒泡');
+                },
+                onenter() {
+                    alert('enter按下');
+                },
+                doThisdown() {
+                    console.log("我是鼠标按下事件")
+                },
+                doThat() {
+                    console.log("我是鼠标抬起事件");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

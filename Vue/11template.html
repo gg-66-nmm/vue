@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id='box'>
+        <hello>
+            <div>12121</div>
+            <div>4545</div>
+        </hello>
+    </div>
+    <template id="content">
+        <div>
+            <h2>开始</h2>
+            <slot></slot>
+            <h2>结束</h2>
+        </div>
+    </template>
+    <script>
+        let box = new Vue({
+            el: '#box',
+            data: {
+                message: '没空VJM能冻死',
+            },
+            components: {
+                'hello': {
+                    template: '#content',
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
